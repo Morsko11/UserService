@@ -1,11 +1,10 @@
 package com.example.crrr.repository;
 
-import ch.qos.logback.core.net.server.Client;
 import com.example.crrr.BaseIT;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ClientsRepositoryTest extends BaseIT {
     @Autowired
