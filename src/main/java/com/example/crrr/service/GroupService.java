@@ -9,8 +9,8 @@ import com.example.crrr.repository.ClientsRepository;
 import com.example.crrr.repository.CourseRepository;
 import com.example.crrr.repository.GroupRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -51,18 +51,14 @@ public class GroupService {
         groupRepository.deleteById(id);
     }
 
+    @Transactional
     public boolean addClient(Integer groupId, Integer clientId) {
-        Optional<Group> byId1 = groupRepository.findById(groupId);
-        Optional<Clients> byId = clientsRepository.findById(clientId);
-        if (byId1.isPresent()){
-            if (byId.isPresent()){
-                Clients clients = byId.get();
-                clients.setGroup(byId1.get());
-                clientsRepository.save(clients);
-                return true;
-            }
-        }
-        return false;
-
+        Optional<Group> optionalGroup = groupRepository.findById(groupId);
+        Optional<Clients> clientsOptional = clientsRepository.findById(clientId);
+        optionalGroup.ifPresent(group -> clientsOptional.ifPresent(client -> {
+            client.setGroup(group);
+            clientsRepository.save(client);
+        }));
+        return true;
     }
 }
