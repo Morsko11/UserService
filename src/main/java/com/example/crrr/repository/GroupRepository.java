@@ -13,4 +13,6 @@ public interface GroupRepository extends JpaRepository<Group, Integer> {
     @EntityGraph(value = "group-with-clients-and-teachers")
     @Query("SELECT g FROM Group g")
     List<Group> findAllWithClientsAndTeachers();
+
+    List<Group> findAllByCourse_Id(int courseId);
 }
