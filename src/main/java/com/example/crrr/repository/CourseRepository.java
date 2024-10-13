@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface CourseRepository extends JpaRepository<Course, Integer> {
+public interface CourseRepository extends JpaRepository<Course, Long> {
     @EntityGraph(value = "Course.groupsDetails", type = EntityGraph.EntityGraphType.FETCH)
     @Query("SELECT c FROM Course c")
     Optional<Course> findWithGroupsById(Integer id);

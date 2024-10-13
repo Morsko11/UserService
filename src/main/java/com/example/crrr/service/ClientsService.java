@@ -36,13 +36,13 @@ public class ClientsService {
                 .collect(Collectors.toList());
     }
 
-    public ClientsDTO getClientById(Integer id) {
+    public ClientsDTO getClientById(Long id) {
         Clients client = clientsRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Client not found"));
         return ClientsMapper.toDTO(client);
     }
 
-    public void deleteClient(Integer id) {
+    public void deleteClient(Long id) {
         clientsRepository.deleteById(id);
     }
 }

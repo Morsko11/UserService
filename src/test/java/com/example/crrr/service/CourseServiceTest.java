@@ -21,11 +21,11 @@ class CourseServiceTest extends BaseIT {
 
     @Test
     void addGroupToCourseTest() {
-        courseService.addGroupToCourse(2, 1);
+        courseService.addGroupToCourse(2L, 1L);
         Optional<Course> withGroupsById = courseRepository.findWithGroupsById(1);
         Optional<Course> withTeachersById = courseRepository.findWithTeachersById(1);
         assertEquals(2, withGroupsById.get().getGroups().size());
         assertEquals(0, withTeachersById.get().getTeachers().size());
-        assertEquals(1, groupRepository.findById(2).get().getCourse().getId());
+        assertEquals(1, groupRepository.findById(2L).get().getCourse().getId());
     }
 }

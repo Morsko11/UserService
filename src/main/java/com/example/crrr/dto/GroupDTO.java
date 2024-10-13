@@ -12,9 +12,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GroupDTO {
-    private int id;
+    private Long id;
     private String title;
-    private List<Integer> clientIds;
-    private int courseId;
+    private List<Long> clientIds;
+    private Long courseId;
 
 }

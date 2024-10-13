@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface GroupRepository extends JpaRepository<Group, Integer> {
+public interface GroupRepository extends JpaRepository<Group, Long> {
     @EntityGraph(value = "group-with-clients-and-teachers")
     @Query("SELECT g FROM Group g")
     List<Group> findAllWithClientsAndTeachers();

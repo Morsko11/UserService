@@ -46,13 +46,13 @@ public class TeacherService {
                 .collect(Collectors.toList());
     }
 
-    public TeacherDTO getTeacherById(Integer id) {
+    public TeacherDTO getTeacherById(Long id) {
         Teacher teacher = teacherRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Teacher not found"));
         return TeacherMapper.toDTO(teacher);
     }
 
-    public void deleteTeacher(Integer id) {
+    public void deleteTeacher(Long id) {
         teacherRepository.deleteById(id);
     }
 }

@@ -23,9 +23,11 @@ public class Course {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     private String courseName;
+
+    private String description;
 
     @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
     private List<Teacher> teachers;

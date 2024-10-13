@@ -1,5 +1,5 @@
-insert into course (id, course_name, description)
-values (1, 'Java', 'test');
+insert into course (course_name, description)
+values ('Java', 'test');
 
 INSERT INTO client (id, name, lastname, dob)
 values (1, 'vvv', 'ccc', CURRENT_DATE);

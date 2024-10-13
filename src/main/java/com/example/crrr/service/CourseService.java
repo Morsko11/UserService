@@ -36,18 +36,18 @@ public class CourseService {
                 .collect(Collectors.toList());
     }
 
-    public CourseDTO getCourseById(Integer id) {
+    public CourseDTO getCourseById(Long id) {
         Course course = courseRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Course not found"));
         return CourseMapper.toDTO(course);
     }
 
-    public void deleteCourse(Integer id) {
+    public void deleteCourse(Long id) {
         courseRepository.deleteById(id);
     }
 
     @Transactional
-    public void addGroupToCourse(Integer groupId, Integer courseId) {
+    public void addGroupToCourse(Long groupId, Long courseId) {
         Optional<Course> courseOptional = courseRepository.findById(courseId);
         Optional<Group> groupOptional = groupRepository.findById(groupId);
         if (courseOptional.isPresent()) {

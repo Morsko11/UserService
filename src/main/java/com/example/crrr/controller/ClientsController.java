@@ -27,12 +27,12 @@ public class ClientsController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ClientsDTO> getClientById(@PathVariable Integer id) {
+    public ResponseEntity<ClientsDTO> getClientById(@PathVariable Long id) {
         return new ResponseEntity<>(clientsService.getClientById(id), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteClient(@PathVariable Integer id) {
+    public ResponseEntity<Void> deleteClient(@PathVariable Long id) {
         clientsService.deleteClient(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }

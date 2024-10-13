@@ -11,10 +11,10 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ClientsDTO {
-    private Integer id;
+    private Long id;
     private String name;
     private String lastname;
     private LocalDate dob;
-    private Integer groupId;
+    private Long groupId;
 
 }

@@ -39,7 +39,7 @@ public class GroupMapper {
         // Преобразование DTO в сущность без циклических зависимостей
         if (dto.getClientIds() != null && !dto.getClientIds().isEmpty()) {
             List<Clients> clients = new ArrayList<>();
-            for (Integer clientId : dto.getClientIds()) {
+            for (Long clientId : dto.getClientIds()) {
                 Clients client = new Clients();
                 client.setId(clientId);
                 clients.add(client);

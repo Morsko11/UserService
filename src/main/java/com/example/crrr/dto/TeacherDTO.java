@@ -12,11 +12,11 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TeacherDTO {
-    private int id;
+    private Long id;
     private String name;
     private String lastname;
     private LocalDate age;
-    private List<Integer> groupIds;
-    private int courseId;
+    private List<Long> groupIds;
+    private Long courseId;
 
 }

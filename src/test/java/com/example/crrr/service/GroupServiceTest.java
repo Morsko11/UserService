@@ -34,10 +34,10 @@ class GroupServiceTest extends BaseIT {
 
     @Test
     void addClient() {
-        groupService.addClient(1, 1);
+        groupService.addClient(1L, 1L);
 
 
 
-        Assertions.assertEquals(1, clientsRepository.findById(1).get().getGroup().getId());
+        Assertions.assertEquals(1, clientsRepository.findById(1L).get().getGroup().getId());
     }
 }

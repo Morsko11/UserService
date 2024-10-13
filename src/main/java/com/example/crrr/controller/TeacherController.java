@@ -27,12 +27,12 @@ public class TeacherController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<TeacherDTO> getTeacherById(@PathVariable Integer id) {
+    public ResponseEntity<TeacherDTO> getTeacherById(@PathVariable Long id) {
         return new ResponseEntity<>(teacherService.getTeacherById(id), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteTeacher(@PathVariable Integer id) {
+    public ResponseEntity<Void> deleteTeacher(@PathVariable Long id) {
         teacherService.deleteTeacher(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }

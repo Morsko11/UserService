@@ -41,18 +41,18 @@ public class GroupService {
                 .collect(Collectors.toList());
     }
 
-    public GroupDTO getGroupById(Integer id) {
+    public GroupDTO getGroupById(Long id) {
         Group group = groupRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Group not found"));
         return GroupMapper.toDTO(group);
     }
 
-    public void deleteGroup(Integer id) {
+    public void deleteGroup(Long id) {
         groupRepository.deleteById(id);
     }
 
     @Transactional
-    public boolean addClient(Integer groupId, Integer clientId) {
+    public boolean addClient(Long groupId, Long clientId) {
         Optional<Group> optionalGroup = groupRepository.findById(groupId);
         Optional<Clients> clientsOptional = clientsRepository.findById(clientId);
         optionalGroup.ifPresent(group -> clientsOptional.ifPresent(client -> {

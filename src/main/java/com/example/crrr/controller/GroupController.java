@@ -27,17 +27,17 @@ public class GroupController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<GroupDTO> getGroupById(@PathVariable Integer id) {
+    public ResponseEntity<GroupDTO> getGroupById(@PathVariable Long id) {
         return new ResponseEntity<>(groupService.getGroupById(id), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteGroup(@PathVariable Integer id) {
+    public ResponseEntity<Void> deleteGroup(@PathVariable Long id) {
         groupService.deleteGroup(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
     @PostMapping("/add")
-    public ResponseEntity<Boolean> addClient(@RequestParam Integer groupId , Integer clientId){
+    public ResponseEntity<Boolean> addClient(@RequestParam Long groupId , Long clientId){
         groupService.addClient(groupId,clientId);
         return ResponseEntity.ok(true);
     }
